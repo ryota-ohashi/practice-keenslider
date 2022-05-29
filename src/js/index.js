@@ -34,6 +34,15 @@ TEMPLATE = {
         TEMPLATE.updateClass(instance);
       }
     });
+    // ジャンプ処理
+    const jumpBtn = document.querySelectorAll('[data-slider-jump]');
+    jumpBtn.forEach((item) => {
+      item.addEventListener('click', () => {
+        const index = item.dataset.sliderNum - 1;
+
+        keenSlider.moveToIdx(index, false, {duration: 0});
+      });
+    });
   },
   updateClass: function(instance) {
     const currentIndex = instance.track.details.abs;
